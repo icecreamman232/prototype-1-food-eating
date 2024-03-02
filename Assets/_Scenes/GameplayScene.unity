@@ -496,11 +496,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18a3d09e5db702741b9b740c8f983663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_direction: {x: 0, y: 0}
   m_moveLength: 0.5
   m_moveSpeed: 2
-  m_inputDelayTime: 0.2
-  m_timer: 0
+  m_facingDirection: 0
+  m_direction: {x: 0, y: 0}
+  m_spriteRenderer: {fileID: 69232573}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
