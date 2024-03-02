@@ -105,28 +105,8 @@ namespace JustGame.Script.Player
             }
         }
 
-        private bool HitObstacle()
+        private void DirectionVectorToEnum()
         {
-            var bounds = m_collider2D.bounds;
-            
-            var topOrigin = new Vector2(bounds.center.x, bounds.center.y + bounds.extents.y);
-            var botOrigin = new Vector2(bounds.center.x, bounds.center.y - bounds.extents.y);
-            var leftOrigin = new Vector2(bounds.center.x - bounds.extents.x, bounds.center.y);
-            var rightOrigin = new Vector2(bounds.center.x + bounds.extents.x, bounds.center.y);
-            var topLeftOrigin = new Vector2(bounds.min.x, bounds.max.y);
-            var topRightOrigin = bounds.max;
-            var botLeftOrigin = bounds.min;
-            var botRightOrigin = new Vector2(bounds.max.x, bounds.min.y);
-
-            RaycastHit2D top;
-            RaycastHit2D bot;
-            RaycastHit2D left;
-            RaycastHit2D right;
-            RaycastHit2D topLeft;
-            RaycastHit2D topRight;
-            RaycastHit2D botLeft;
-            RaycastHit2D botRight;
-
             if (m_direction is { x: >= 1, y: 0 })
             {
                 dir = Direction.RIGHT;
@@ -159,6 +139,31 @@ namespace JustGame.Script.Player
             {
                 dir = Direction.DOWN_RIGHT;
             }
+        }
+        
+        private bool HitObstacle()
+        {
+            var bounds = m_collider2D.bounds;
+            
+            var topOrigin = new Vector2(bounds.center.x, bounds.center.y + bounds.extents.y);
+            var botOrigin = new Vector2(bounds.center.x, bounds.center.y - bounds.extents.y);
+            var leftOrigin = new Vector2(bounds.center.x - bounds.extents.x, bounds.center.y);
+            var rightOrigin = new Vector2(bounds.center.x + bounds.extents.x, bounds.center.y);
+            var topLeftOrigin = new Vector2(bounds.min.x, bounds.max.y);
+            var topRightOrigin = bounds.max;
+            var botLeftOrigin = bounds.min;
+            var botRightOrigin = new Vector2(bounds.max.x, bounds.min.y);
+
+            RaycastHit2D top;
+            RaycastHit2D bot;
+            RaycastHit2D left;
+            RaycastHit2D right;
+            RaycastHit2D topLeft;
+            RaycastHit2D topRight;
+            RaycastHit2D botLeft;
+            RaycastHit2D botRight;
+
+            DirectionVectorToEnum();
 
             bool hasObstacle = false;
             
@@ -237,28 +242,7 @@ namespace JustGame.Script.Player
                     hasObstacle = bot.collider!=null || botRight.collider!=null || right.collider!=null;
                     break;
             }
-
-            switch (dir)
-            {
-                case Direction.UP:
-                    break;
-                case Direction.DOWN:
-                    break;
-                case Direction.LEFT:
-                    break;
-                case Direction.RIGHT:
-                    break;
-                case Direction.UP_LEFT:
-                    break;
-                case Direction.UP_RIGHT:
-                    break;
-                case Direction.DOWN_LEFT:
-                    break;
-                case Direction.DOWN_RIGHT:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            
             return hasObstacle;
         }
     }
