@@ -10,18 +10,31 @@ namespace JustGame.Script.Weapon
         [SerializeField] private float m_maxDistance;
         [SerializeField] private float m_delayBeforeDestroy;
         [SerializeField] private LayerMask m_targetMask;
+        [SerializeField] protected SpriteRenderer m_spriteRenderer;
         
         protected Vector2 m_direction;
         protected bool m_canMove;
         protected float m_traveledDistance;
         protected Vector2 m_originPos;
-        
+
+        private void Start()
+        {
+            m_spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        }
+
+
         public virtual void SpawnProjectile(Vector2 position, Vector2 direction)
         {
             m_traveledDistance = 0;
             transform.position = position;
             m_originPos = position;
             m_direction = direction;
+
+            var angle = Mathf.Atan2(m_direction.y, m_direction.x) * Mathf.Rad2Deg;
+            
+            //Rotate on game object that has the sprite only
+            m_spriteRenderer.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            
             m_canMove = true;
         }
 

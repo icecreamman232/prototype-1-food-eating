@@ -51,6 +51,7 @@ MonoBehaviour:
   m_targetMask:
     serializedVersion: 2
     m_Bits: 512
+  m_spriteRenderer: {fileID: 2242192754820036812}
 --- !u!1 &7662658448632083051
 GameObject:
   m_ObjectHideFlags: 0
