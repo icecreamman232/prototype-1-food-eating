@@ -37,11 +37,20 @@ namespace JustGame.Script.Manager
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Value"",
+                    ""id"": ""cc81aa90-a59f-470a-8e85-a875e47746dc"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": ""Arrows"",
+                    ""name"": ""WASD"",
                     ""id"": ""40049a83-0101-4411-9341-497f6b93849c"",
                     ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
@@ -54,7 +63,7 @@ namespace JustGame.Script.Manager
                 {
                     ""name"": ""up"",
                     ""id"": ""a272c700-28de-4471-b3cc-eb62f90442bb"",
-                    ""path"": ""<Keyboard>/upArrow"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -65,7 +74,7 @@ namespace JustGame.Script.Manager
                 {
                     ""name"": ""down"",
                     ""id"": ""5bd6fce4-8e70-49a8-85aa-fb7a7e08850c"",
-                    ""path"": ""<Keyboard>/downArrow"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -76,7 +85,7 @@ namespace JustGame.Script.Manager
                 {
                     ""name"": ""left"",
                     ""id"": ""b79ab8e6-510f-4a2e-9b62-520cb28fdeab"",
-                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -87,11 +96,66 @@ namespace JustGame.Script.Manager
                 {
                     ""name"": ""right"",
                     ""id"": ""f62035f5-e6f1-4407-87bf-c5e8ba5cc581"",
-                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Arrows"",
+                    ""id"": ""c5fdda30-4321-49f3-9199-622ffd383ed5"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""e107dc45-96eb-49bd-82df-6553a2a41ad6"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""67897cec-3b7e-4d3d-b056-fa3a4c9a55f4"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""911a3700-7859-41c5-bb64-d55209262201"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""61e76d23-b22d-47a4-beb1-9d188f1dee83"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -103,6 +167,7 @@ namespace JustGame.Script.Manager
             // PC
             m_PC = asset.FindActionMap("PC", throwIfNotFound: true);
             m_PC_Move = m_PC.FindAction("Move", throwIfNotFound: true);
+            m_PC_Shoot = m_PC.FindAction("Shoot", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -165,11 +230,13 @@ namespace JustGame.Script.Manager
         private readonly InputActionMap m_PC;
         private List<IPCActions> m_PCActionsCallbackInterfaces = new List<IPCActions>();
         private readonly InputAction m_PC_Move;
+        private readonly InputAction m_PC_Shoot;
         public struct PCActions
         {
             private @MainInputAction m_Wrapper;
             public PCActions(@MainInputAction wrapper) { m_Wrapper = wrapper; }
             public InputAction @Move => m_Wrapper.m_PC_Move;
+            public InputAction @Shoot => m_Wrapper.m_PC_Shoot;
             public InputActionMap Get() { return m_Wrapper.m_PC; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -182,6 +249,9 @@ namespace JustGame.Script.Manager
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @Shoot.started += instance.OnShoot;
+                @Shoot.performed += instance.OnShoot;
+                @Shoot.canceled += instance.OnShoot;
             }
 
             private void UnregisterCallbacks(IPCActions instance)
@@ -189,6 +259,9 @@ namespace JustGame.Script.Manager
                 @Move.started -= instance.OnMove;
                 @Move.performed -= instance.OnMove;
                 @Move.canceled -= instance.OnMove;
+                @Shoot.started -= instance.OnShoot;
+                @Shoot.performed -= instance.OnShoot;
+                @Shoot.canceled -= instance.OnShoot;
             }
 
             public void RemoveCallbacks(IPCActions instance)
@@ -209,6 +282,7 @@ namespace JustGame.Script.Manager
         public interface IPCActions
         {
             void OnMove(InputAction.CallbackContext context);
+            void OnShoot(InputAction.CallbackContext context);
         }
     }
 }

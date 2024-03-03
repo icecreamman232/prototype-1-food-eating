@@ -40,24 +40,19 @@ namespace JustGame.Script.Player
         [SerializeField] private SpriteRenderer m_spriteRenderer;
         [SerializeField] private BoxCollider2D m_collider2D;
         [SerializeField] private LayerScriptableData m_layerScriptableData;
-
-        private List<RaycastHit2D> m_verticalRayCastHit;
-        private List<RaycastHit2D> m_horizontalRayCastHit;
-
+        
         private Direction dir;
-        private MainInputAction m_inputAction;
+        [SerializeField] private InputActionAsset m_inputAction;
 
         private void Start()
         {
-            m_inputAction = new MainInputAction();
             m_inputAction.Enable();
-            m_inputAction.PC.Move.performed += MovementPerform;
-            m_inputAction.PC.Move.canceled += MovementCancel;
+            var actionMap = m_inputAction.FindActionMap("PC");
+            var action = actionMap.FindAction("Move");
+            action.performed += MovementPerform;
+            action.canceled += MovementCancel;
 
             m_facingDirection = FacingDirection.RIGHT;
-
-            m_verticalRayCastHit = new List<RaycastHit2D>();
-            m_horizontalRayCastHit = new List<RaycastHit2D>();
         }
         
         private void MovementPerform(InputAction.CallbackContext context)
