@@ -9,6 +9,7 @@ namespace JustGame.Script.Player
         [SerializeField] private int  m_currentMoney;
         [SerializeField] private IntEvent m_buyingFoodEvent;
         [SerializeField] private IntEvent m_updateMoneyUIEvent;
+        [SerializeField] private ActionEvent m_lostGameEvent;
 
         private void Start()
         {
@@ -21,6 +22,10 @@ namespace JustGame.Script.Player
         {
             m_currentMoney -= price;
             m_updateMoneyUIEvent.Raise(m_currentMoney);
+            if (m_currentMoney <= 0)
+            {
+                m_lostGameEvent.Raise();
+            }
         }
 
         private void OnDestroy()

@@ -13,6 +13,7 @@ namespace JustGame.Script.Player
         [SerializeField] private FloatEvent m_updateHungryBarUIEvent;
         [SerializeField] private FloatEvent m_updateThirstyBarUIEvent;
         [SerializeField] private IntEvent m_updateLifeUIEvent;
+        [SerializeField] private ActionEvent m_loseGameEvent;
         [Header("Hungry")] 
         [SerializeField] private float m_hungry;
         [SerializeField] private float m_maxHungry;
@@ -60,6 +61,9 @@ namespace JustGame.Script.Player
 
         private void Update()
         {
+            if (m_currentLife <= 0) return;
+            
+            
             m_hungry -= Time.deltaTime * m_decayHungrySpeed;
             m_thirsty -= Time.deltaTime * m_decayThirstySpeed;
             if (m_hungry <= 0)
@@ -105,7 +109,7 @@ namespace JustGame.Script.Player
 
         private void Kill()
         {
-            
+            m_loseGameEvent.Raise();
         }
         
         private void OnDestroy()

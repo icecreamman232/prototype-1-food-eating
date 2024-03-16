@@ -1,3 +1,6 @@
+using System;
+using JustGame.Script.Manager;
+using JustGame.Scripts.ScriptableEvent;
 using UnityEngine;
 
 namespace JustGame.Script.Food
@@ -5,11 +8,22 @@ namespace JustGame.Script.Food
     public class Run : MonoBehaviour
     {
         [SerializeField] private float m_moveSpeed;
+        [SerializeField] private BoolEvent m_pauseGameEvent;
         private bool m_canRun;
         private Vector2 m_from;
         private Vector2 m_to;
         private float m_lerpValue;
-        
+
+        private void Start()
+        {
+            m_pauseGameEvent.AddListener(OnPauseGame);
+        }
+
+        private void OnPauseGame(bool isPaused)
+        {
+            m_canRun = isPaused;
+        }
+
         public void SetRun(Vector2 from, Vector2 to)
         {
             m_from = from;
@@ -36,6 +50,11 @@ namespace JustGame.Script.Food
             {
                Destroy(this.gameObject);
             }
+        }
+
+        private void OnDestroy()
+        {
+            m_pauseGameEvent.RemoveListener(OnPauseGame);
         }
     }
 }

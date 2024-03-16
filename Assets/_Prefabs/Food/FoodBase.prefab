@@ -265,6 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_moveSpeed: 8
+  m_pauseGameEvent: {fileID: 11400000, guid: a5f64fe6868ca0a47b109f1ee5b864c4, type: 2}
 --- !u!1 &6985942329351383484
 GameObject:
   m_ObjectHideFlags: 0
