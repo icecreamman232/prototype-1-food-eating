@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cbbeb12fce733904182c1b09e6dfa8f7, type: 3}
-  m_Name: Dairy-2
+  m_Name: Grain-1
   m_EditorClassIdentifier: 
-  FoodType: 3
-  HungryPts: 10
-  ThirstyPts: 2
+  FoodType: 1
+  HungryPts: 25
+  ThirstyPts: -5
+  ExpiredData: 300

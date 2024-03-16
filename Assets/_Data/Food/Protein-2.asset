@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cbbeb12fce733904182c1b09e6dfa8f7, type: 3}
-  m_Name: Fat-1
+  m_Name: Protein-2
   m_EditorClassIdentifier: 
-  FoodType: 4
-  HungryPts: 15
-  ThirstyPts: -5
+  FoodType: 2
+  HungryPts: 25
+  ThirstyPts: 10
+  ExpiredData: 300
