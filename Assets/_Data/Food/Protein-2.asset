@@ -15,4 +15,5 @@ MonoBehaviour:
   FoodType: 2
   HungryPts: 25
   ThirstyPts: 10
+  Price: 10
   ExpiredData: 300

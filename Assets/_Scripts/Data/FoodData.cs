@@ -8,6 +8,7 @@ namespace JustGame.Script.Data
         public FoodType FoodType;
         public float HungryPts;
         public float ThirstyPts;
+        public int Price;
         public float ExpiredData;
     }
 

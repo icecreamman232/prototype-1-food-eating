@@ -1,5 +1,7 @@
 using JustGame.Script.Data;
 using JustGame.Scripts.Managers;
+using JustGame.Scripts.ScriptableEvent;
+using TMPro;
 using UnityEngine;
 
 namespace JustGame.Script.Food
@@ -8,14 +10,18 @@ namespace JustGame.Script.Food
     {
         [SerializeField] private FoodData m_foodData;
         [SerializeField] private ConsumeFoodEvent m_consumeFoodEvent;
+        [SerializeField] private IntEvent m_buyingFoodEvent;
         [SerializeField] private Run m_run;
-        
+        [SerializeField] private TextMeshProUGUI m_priceTag;
+
+        private bool m_isBought;
         private Vector2 m_currentPos;
         private Camera m_mainCamera;
 
         private void Awake()
         {
             m_mainCamera = Camera.main;
+            m_priceTag.text = $"${m_foodData.Price}";
         }
 
         private void Update()
@@ -29,6 +35,11 @@ namespace JustGame.Script.Food
             pos.z = 0;
             m_currentPos = pos;
             m_run.StopRun();
+            if(!m_isBought)
+            {
+                m_isBought = true;
+                m_buyingFoodEvent.Raise(m_foodData.Price);
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D other)
