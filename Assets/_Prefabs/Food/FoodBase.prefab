@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_foodData: {fileID: 0}
+  m_run: {fileID: -8132596925748947414}
 --- !u!114 &-8132596925748947414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,4 +158,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 709a378860ca2124a909c65d72c3e898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_moveSpeed: 0.01
+  m_moveSpeed: 8
