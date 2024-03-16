@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Veggie-2
   m_EditorClassIdentifier: 
   FoodType: 0
+  HungryPts: 15
+  ThirstyPts: 10

@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_foodData: {fileID: 0}
+  m_consumeFoodEvent: {fileID: 11400000, guid: 04a32c04428667c49873073211805792, type: 2}
   m_run: {fileID: -8132596925748947414}
 --- !u!114 &-8132596925748947414
 MonoBehaviour:

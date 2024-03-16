@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbbeb12fce733904182c1b09e6dfa8f7, type: 3}
-  m_Name: Fat-1
+  m_Script: {fileID: 11500000, guid: 9801759900d446245a8a59922fbd2086, type: 3}
+  m_Name: UpdateThirstyBarUIEvent
   m_EditorClassIdentifier: 
-  FoodType: 4
-  HungryPts: 15
-  ThirstyPts: -5

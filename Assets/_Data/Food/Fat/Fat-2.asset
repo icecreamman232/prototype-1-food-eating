@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Fat-2
   m_EditorClassIdentifier: 
   FoodType: 4
+  HungryPts: 15
+  ThirstyPts: -5

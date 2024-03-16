@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Protein-1
   m_EditorClassIdentifier: 
   FoodType: 2
+  HungryPts: 25
+  ThirstyPts: 10

@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Grain-1
   m_EditorClassIdentifier: 
   FoodType: 1
+  HungryPts: 25
+  ThirstyPts: -5

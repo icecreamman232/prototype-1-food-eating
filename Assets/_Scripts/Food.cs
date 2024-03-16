@@ -7,6 +7,7 @@ namespace JustGame.Script.Food
     public class Food : MonoBehaviour
     {
         [SerializeField] private FoodData m_foodData;
+        [SerializeField] private ConsumeFoodEvent m_consumeFoodEvent;
         [SerializeField] private Run m_run;
         
         private Vector2 m_currentPos;
@@ -42,6 +43,7 @@ namespace JustGame.Script.Food
 
         public void OnConsume()
         {
+            m_consumeFoodEvent.Raise(m_foodData);
             Destroy(this.gameObject);
         }
     }

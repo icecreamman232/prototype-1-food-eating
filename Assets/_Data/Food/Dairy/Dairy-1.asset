@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Dairy-1
   m_EditorClassIdentifier: 
   FoodType: 3
+  HungryPts: 10
+  ThirstyPts: 2

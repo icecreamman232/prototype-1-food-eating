@@ -6,6 +6,8 @@ namespace JustGame.Script.Data
     public class FoodData : ScriptableObject
     {
         public FoodType FoodType;
+        public float HungryPts;
+        public float ThirstyPts;
     }
 
     public enum FoodType
