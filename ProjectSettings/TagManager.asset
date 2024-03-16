@@ -12,9 +12,9 @@ TagManager:
   - Water
   - UI
   - Player
-  - Obstacle
-  - Projectile
-  - Enemy
+  - Food
+  - 
+  - 
   - 
   - 
   - 
@@ -44,9 +44,6 @@ TagManager:
   - name: Player
     uniqueID: 3989228031
     locked: 0
-  - name: Enemy
+  - name: Food
     uniqueID: 1778100113
-    locked: 0
-  - name: Projectile
-    uniqueID: 3232638773
     locked: 0
