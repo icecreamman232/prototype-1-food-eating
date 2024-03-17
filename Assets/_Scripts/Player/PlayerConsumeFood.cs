@@ -9,6 +9,9 @@ namespace JustGame.Script.Player
 {
     public class PlayerConsumeFood : MonoBehaviour
     {
+        [Header("References")] 
+        [SerializeField]
+        private Animator m_animator;
         [Header("Events")]
         [SerializeField] private ConsumeFoodEvent m_consumeFoodEvent;
         [SerializeField] private FloatEvent m_updateHungryBarUIEvent;
@@ -30,6 +33,7 @@ namespace JustGame.Script.Player
         [SerializeField] private float m_invulnerableDuration;
 
         private bool m_isInvulnerable;
+        private int m_triggerEatAnim = Animator.StringToHash("trigger_Eat");
         
         private void Start()
         {
@@ -54,6 +58,8 @@ namespace JustGame.Script.Player
 
         private void OnConsumeFood(FoodData food)
         {
+            m_animator.SetTrigger(m_triggerEatAnim);
+            
             m_hungry += food.HungryPts;
             if (m_hungry >= m_maxHungry)
             {

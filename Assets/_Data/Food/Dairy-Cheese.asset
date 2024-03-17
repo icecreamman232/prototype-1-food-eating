@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cbbeb12fce733904182c1b09e6dfa8f7, type: 3}
-  m_Name: Veggie-2
+  m_Name: Dairy-Cheese
   m_EditorClassIdentifier: 
-  FoodType: 0
-  HungryPts: 15
-  ThirstyPts: 10
+  FoodType: 3
+  HungryPts: 10
+  ThirstyPts: 2
   Price: 10
   ExpiredData: 300
