@@ -1,5 +1,6 @@
 using System.Collections;
 using JustGame.Script.Data;
+using JustGame.Script.Manager;
 using JustGame.Scripts.Managers;
 using JustGame.Scripts.ScriptableEvent;
 using UnityEngine;
@@ -14,6 +15,7 @@ namespace JustGame.Script.Player
         [SerializeField] private FloatEvent m_updateThirstyBarUIEvent;
         [SerializeField] private IntEvent m_updateLifeUIEvent;
         [SerializeField] private ActionEvent m_loseGameEvent;
+        [SerializeField] private ActionEvent m_restartGameEvent;
         [Header("Hungry")] 
         [SerializeField] private float m_hungry;
         [SerializeField] private float m_maxHungry;
@@ -32,13 +34,22 @@ namespace JustGame.Script.Player
         private void Start()
         {
             m_consumeFoodEvent.AddListener(OnConsumeFood);
+            m_restartGameEvent.AddListener(OnRestartGame);
+            InitializeParams();
+        }
+
+        private void InitializeParams()
+        {
             m_hungry = 50;
             m_thirsty = 80;
-
             m_currentLife = m_maxLife;
-            
             m_updateHungryBarUIEvent.Raise(MathHelpers.Remap(m_hungry,0,m_maxHungry,0,1));
             m_updateThirstyBarUIEvent.Raise(MathHelpers.Remap(m_thirsty,0,m_maxThirsty,0,1));
+        }
+        
+        private void OnRestartGame()
+        {
+            InitializeParams();
         }
 
         private void OnConsumeFood(FoodData food)
@@ -109,6 +120,7 @@ namespace JustGame.Script.Player
 
         private void Kill()
         {
+            GameManager.Instance.Pause();
             m_loseGameEvent.Raise();
         }
         

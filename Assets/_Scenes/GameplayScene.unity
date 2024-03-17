@@ -533,6 +533,7 @@ MonoBehaviour:
   m_canvasGroup: {fileID: 299217553}
   m_restartGameButton: {fileID: 722709484}
   m_OnLoseEvent: {fileID: 11400000, guid: 490887b0c3dee0c4b80932120733b5ff, type: 2}
+  m_OnRestartEvent: {fileID: 11400000, guid: 000c8c0e6c5037b478786b7b36d7e90d, type: 2}
 --- !u!1 &332734570
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,9 +1336,7 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 722709482}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  m_restartGameEvent: {fileID: 11400000, guid: 000c8c0e6c5037b478786b7b36d7e90d, type: 2}
 --- !u!1 &738596104
 GameObject:
   m_ObjectHideFlags: 0
@@ -2073,6 +2072,7 @@ MonoBehaviour:
   m_endPos: {fileID: 401791983}
   m_minDelaySpawn: 0.5
   m_maxDelaySpawn: 1.5
+  m_pauseGameEvent: {fileID: 11400000, guid: a5f64fe6868ca0a47b109f1ee5b864c4, type: 2}
 --- !u!1 &1654446874
 GameObject:
   m_ObjectHideFlags: 0
@@ -2304,6 +2304,7 @@ MonoBehaviour:
   m_updateThirstyBarUIEvent: {fileID: 11400000, guid: b666b93f9b249814c921c4432bfea361, type: 2}
   m_updateLifeUIEvent: {fileID: 11400000, guid: f11fcf58254a69e48b5b511c932dc111, type: 2}
   m_loseGameEvent: {fileID: 11400000, guid: 490887b0c3dee0c4b80932120733b5ff, type: 2}
+  m_restartGameEvent: {fileID: 11400000, guid: 000c8c0e6c5037b478786b7b36d7e90d, type: 2}
   m_hungry: 80
   m_maxHungry: 100
   m_decayHungrySpeed: 3
@@ -2330,6 +2331,7 @@ MonoBehaviour:
   m_buyingFoodEvent: {fileID: 11400000, guid: df77222fea9782b45b69708974c6943d, type: 2}
   m_updateMoneyUIEvent: {fileID: 11400000, guid: 87e49256fc7c7764bb4be83fe7bae498, type: 2}
   m_lostGameEvent: {fileID: 11400000, guid: 490887b0c3dee0c4b80932120733b5ff, type: 2}
+  m_restartGameEvent: {fileID: 11400000, guid: 000c8c0e6c5037b478786b7b36d7e90d, type: 2}
 --- !u!1 &2036885599
 GameObject:
   m_ObjectHideFlags: 0

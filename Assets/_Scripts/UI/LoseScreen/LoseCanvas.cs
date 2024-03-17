@@ -9,11 +9,18 @@ namespace JustGame.Script.UI
         [SerializeField] private CanvasGroup m_canvasGroup;
         [SerializeField] private RestartGameButton m_restartGameButton;
         [SerializeField] private ActionEvent m_OnLoseEvent;
+        [SerializeField] private ActionEvent m_OnRestartEvent;
 
         private void Awake()
         {
             HideUI();
             m_OnLoseEvent.AddListener(OnLose);
+            m_OnRestartEvent.AddListener(OnRestartGame);
+        }
+
+        private void OnRestartGame()
+        {
+            HideUI();
         }
 
         private void ShowUI()
@@ -38,6 +45,7 @@ namespace JustGame.Script.UI
         private void OnDestroy()
         {
             m_OnLoseEvent.RemoveListener(OnLose);
+            m_OnRestartEvent.RemoveListener(OnRestartGame);
         }
     }
 }

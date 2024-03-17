@@ -39,7 +39,7 @@ namespace JustGame.Script.Food
         private void Update()
         {
             if (!this.isActiveAndEnabled) return;
-
+            
             if (!m_canRun) return;
             
             if (m_from == m_to) return;

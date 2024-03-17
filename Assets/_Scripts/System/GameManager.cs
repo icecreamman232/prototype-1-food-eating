@@ -7,6 +7,7 @@ namespace JustGame.Script.Manager
     public class GameManager : Singleton<GameManager>
     {
         [SerializeField] private BoolEvent m_pauseGameEvent;
+        public bool IsPaused => m_isPaused;
         
         private bool m_isPaused;
         

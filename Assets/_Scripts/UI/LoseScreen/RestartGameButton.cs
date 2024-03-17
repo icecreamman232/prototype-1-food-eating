@@ -1,13 +1,21 @@
+using JustGame.Script.Manager;
+using JustGame.Scripts.ScriptableEvent;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace JustGame.Script.UI
 {
-    public class RestartGameButton : Button
+    public class RestartGameButton : Selectable
     {
-        public override void OnSubmit(BaseEventData eventData)
+        [SerializeField] private ActionEvent m_restartGameEvent;
+        
+        public override void OnPointerDown(PointerEventData eventData)
         {
-            base.OnSubmit(eventData);
+            GameManager.Instance.Unpause();
+            m_restartGameEvent.Raise();
+            base.OnSelect(eventData);
+            base.OnPointerDown(eventData);
         }
     }
 }
