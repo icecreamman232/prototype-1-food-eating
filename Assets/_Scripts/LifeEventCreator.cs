@@ -12,9 +12,8 @@ namespace JustGame.Script.Manager
     {
         [SerializeField] private RandomLifeEventEvent m_randomLifeEventEvent;
         [SerializeField] private LifeEventSelectEvent m_lifeEventSelectEvent;
+        [SerializeField] private ActionEvent m_createLifeEventEvent;
         [SerializeField] private EventData[] m_eventList;
-        [SerializeField] private float m_minDelaySpawn;
-        [SerializeField] private float m_maxDelaySpawn;
         [SerializeField] private BoolEvent m_pauseGameEvent;
         [SerializeField] [ReadOnly] private bool m_canUpdate;
         [SerializeField] [ReadOnly] private float m_timer;
@@ -22,36 +21,13 @@ namespace JustGame.Script.Manager
         private void Start()
         {
             m_canUpdate = true;
-            m_timer = GetSpawnTime();
             m_pauseGameEvent.AddListener(OnPauseGame);
-            m_lifeEventSelectEvent.AddListener(OnSelectLifeEvent);
+            m_createLifeEventEvent.AddListener(CreateRandomEvent);
         }
-
-        private void OnSelectLifeEvent(EventData lifeEvent)
-        {
-            if (lifeEvent != null)
-            {
-                m_timer = GetSpawnTime();
-            }
-        }
-
-
+        
         private void OnPauseGame(bool isPaused)
         {
             m_canUpdate = !isPaused;
-        }
-
-        private void Update()
-        {
-            if (!m_canUpdate) return;
-            
-            if (m_timer <= 0) return;
-
-            m_timer -= Time.deltaTime;
-            if (m_timer <= 0)
-            {
-                CreateRandomEvent();
-            }
         }
         
         /// <summary>
@@ -68,15 +44,10 @@ namespace JustGame.Script.Manager
             m_randomLifeEventEvent.Raise(list);
         }
         
-        private float GetSpawnTime()
-        {
-            return Random.Range(m_minDelaySpawn, m_maxDelaySpawn);
-        }
-
         private void OnDestroy()
         {
             m_pauseGameEvent.RemoveListener(OnPauseGame);
-            m_lifeEventSelectEvent.RemoveListener(OnSelectLifeEvent);
+            m_createLifeEventEvent.RemoveListener(CreateRandomEvent);
         }
     }
 }

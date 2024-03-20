@@ -13,6 +13,9 @@ namespace JustGame.Scripts.UI
         [SerializeField][ReadOnly]private EventData m_eventData;
         [SerializeField] private Image m_cardImage;
         [SerializeField] private TextMeshProUGUI m_placeholderName;
+        [SerializeField] private TextMeshProUGUI m_energyValueTxt;
+        [SerializeField] private TextMeshProUGUI m_happinessValueTxt;
+        [SerializeField] private TextMeshProUGUI m_stressValueTxt;
         public Action<EventData> OnSelectCard;
 
         public void AssignData(EventData data)
@@ -20,6 +23,9 @@ namespace JustGame.Scripts.UI
             m_eventData = data;
             m_cardImage.sprite = data.EventSprite;
             m_placeholderName.text = data.EventName;
+            m_energyValueTxt.text = data.EnergyPts.ToString();
+            m_happinessValueTxt.text = data.HappinessPts.ToString();
+            m_stressValueTxt.text = data.StressPts.ToString();
         }
         
 

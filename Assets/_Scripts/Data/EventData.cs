@@ -3,30 +3,23 @@ using UnityEngine;
 
 namespace JustGame.Script.Data
 {
-    [CreateAssetMenu(menuName = "JustGame/Food Data")]
+    [CreateAssetMenu(menuName = "JustGame/Life Event Data")]
     public class EventData : ScriptableObject
     {
         public string EventName;
         public Sprite EventSprite;
-        public FoodType FoodType;
-        public float HungryPts;
-        public float ThirstyPts;
+        public float TimeToFinish; //Seconds
+        [Header("Stats")]
+        public float HappinessPts;
+        public float EnergyPts;
+        public float StressPts;
+        
         public int Price;
 
         public virtual void ApplyEvent(PlayerLife playerLife)
         {
-            playerLife.Hungry += HungryPts;
-            playerLife.Thirsty += ThirstyPts;
+            playerLife.Happiness += HappinessPts;
+            playerLife.Stress += StressPts;
         }
-        
-    }
-        
-    public enum FoodType
-    {
-        VEGGIE,
-        GRAIN,
-        PROTEIN,
-        DAIRY,
-        FAT,
     }
 }
