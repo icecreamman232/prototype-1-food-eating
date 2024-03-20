@@ -3,13 +3,14 @@ using JustGame.Scripts.Managers;
 using JustGame.Scripts.ScriptableEvent;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace JustGame.Script.Food
 {
     public class Food : MonoBehaviour
     {
-        [SerializeField] private FoodData m_foodData;
-        [SerializeField] private ConsumeFoodEvent m_consumeFoodEvent;
+        [SerializeField] private EventData m_foodData;
+        [FormerlySerializedAs("m_consumeFoodEvent")] [SerializeField] private LifeEventSelectEvent lifeEventSelectEvent;
         [SerializeField] private IntEvent m_buyingFoodEvent;
         [SerializeField] private Run m_run;
         [SerializeField] private TextMeshProUGUI m_priceTag;
@@ -54,7 +55,7 @@ namespace JustGame.Script.Food
 
         public void OnConsume()
         {
-            m_consumeFoodEvent.Raise(m_foodData);
+            lifeEventSelectEvent.Raise(m_foodData);
             Destroy(this.gameObject);
         }
     }

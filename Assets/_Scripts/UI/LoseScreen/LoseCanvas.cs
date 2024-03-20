@@ -27,6 +27,7 @@ namespace JustGame.Script.UI
         {
             m_canvasGroup.alpha = 1;
             m_canvasGroup.interactable = true;
+            m_canvasGroup.blocksRaycasts = true;
             m_restartGameButton.interactable = true;
         }
 
@@ -34,6 +35,7 @@ namespace JustGame.Script.UI
         {
             m_canvasGroup.alpha = 0;
             m_canvasGroup.interactable = false;
+            m_canvasGroup.blocksRaycasts = false;
             m_restartGameButton.interactable = false;
         }
         

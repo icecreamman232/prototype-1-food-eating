@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbbeb12fce733904182c1b09e6dfa8f7, type: 3}
+  m_Name: Fat-2
+  m_EditorClassIdentifier: 
+  EventName: Eat fat
+  EventSprite: {fileID: -203683938, guid: f09afe53bf6aa884f9783f7077285e15, type: 3}
+  FoodType: 4
+  HungryPts: 15
+  ThirstyPts: -5
+  Price: 10
