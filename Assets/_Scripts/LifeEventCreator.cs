@@ -1,7 +1,6 @@
-using System;
 using System.Collections.Generic;
 using JustGame.Script.Data;
-using JustGame.Script.Food;
+using JustGame.Scripts.Attribute;
 using JustGame.Scripts.Data;
 using JustGame.Scripts.ScriptableEvent;
 using UnityEngine;
@@ -12,21 +11,30 @@ namespace JustGame.Script.Manager
     public class LifeEventCreator : MonoBehaviour
     {
         [SerializeField] private RandomLifeEventEvent m_randomLifeEventEvent;
+        [SerializeField] private LifeEventSelectEvent m_lifeEventSelectEvent;
         [SerializeField] private EventData[] m_eventList;
         [SerializeField] private float m_minDelaySpawn;
         [SerializeField] private float m_maxDelaySpawn;
         [SerializeField] private BoolEvent m_pauseGameEvent;
-
-        private bool m_canUpdate;
-        private float m_timer;
+        [SerializeField] [ReadOnly] private bool m_canUpdate;
+        [SerializeField] [ReadOnly] private float m_timer;
 
         private void Start()
         {
             m_canUpdate = true;
             m_timer = GetSpawnTime();
             m_pauseGameEvent.AddListener(OnPauseGame);
+            m_lifeEventSelectEvent.AddListener(OnSelectLifeEvent);
         }
-        
+
+        private void OnSelectLifeEvent(EventData lifeEvent)
+        {
+            if (lifeEvent != null)
+            {
+                m_timer = GetSpawnTime();
+            }
+        }
+
 
         private void OnPauseGame(bool isPaused)
         {
@@ -43,7 +51,6 @@ namespace JustGame.Script.Manager
             if (m_timer <= 0)
             {
                 CreateRandomEvent();
-                m_timer = GetSpawnTime();
             }
         }
         
@@ -69,6 +76,7 @@ namespace JustGame.Script.Manager
         private void OnDestroy()
         {
             m_pauseGameEvent.RemoveListener(OnPauseGame);
+            m_lifeEventSelectEvent.RemoveListener(OnSelectLifeEvent);
         }
     }
 }

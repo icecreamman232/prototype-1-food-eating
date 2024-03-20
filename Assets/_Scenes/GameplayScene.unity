@@ -2139,10 +2139,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card-2
       objectReference: {fileID: 0}
-    - target: {fileID: 7950219973842491430, guid: c50b24497ff8dbe40a9cf3ade1627123, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8812621097114637843, guid: c50b24497ff8dbe40a9cf3ade1627123, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2487,6 +2483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_randomLifeEventEvent: {fileID: 11400000, guid: 6a07e9ef690811b4a9ea7d516cad0115, type: 2}
+  m_lifeEventSelectEvent: {fileID: 11400000, guid: 04a32c04428667c49873073211805792, type: 2}
   m_eventList:
   - {fileID: 11400000, guid: 75dadef62ff8e7143b869f3a1315e194, type: 2}
   - {fileID: 11400000, guid: c1e0f243fcd83004dbc9f8581080bc52, type: 2}
@@ -2502,6 +2499,8 @@ MonoBehaviour:
   m_minDelaySpawn: 5
   m_maxDelaySpawn: 20
   m_pauseGameEvent: {fileID: 11400000, guid: a5f64fe6868ca0a47b109f1ee5b864c4, type: 2}
+  m_canUpdate: 0
+  m_timer: 0
 --- !u!1 &1654446874
 GameObject:
   m_ObjectHideFlags: 0
@@ -2762,7 +2761,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 555
@@ -2927,13 +2926,10 @@ MonoBehaviour:
   m_restartGameEvent: {fileID: 11400000, guid: 000c8c0e6c5037b478786b7b36d7e90d, type: 2}
   m_hungry: 80
   m_maxHungry: 100
-  m_decayHungrySpeed: 3
   m_thirsty: 100
   m_maxThirsty: 100
-  m_decayThirstySpeed: 5
   m_currentLife: 0
   m_maxLife: 3
-  m_invulnerableDuration: 3
 --- !u!114 &2033042051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3269,8 +3265,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7032432707280314675, guid: c50b24497ff8dbe40a9cf3ade1627123, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
