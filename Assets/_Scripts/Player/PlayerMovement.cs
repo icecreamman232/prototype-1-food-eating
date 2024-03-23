@@ -9,6 +9,8 @@ namespace JustGame.Script.Player
         [SerializeField] private SpriteRenderer m_spriteRenderer;
         [SerializeField] private float m_moveSpeed;
         [SerializeField] [ReadOnly] private Vector2 m_movingDirection;
+
+        public Vector2 MovingDirection => m_movingDirection;
         
         private int m_idleAnim = Animator.StringToHash("trigger_Idle");
         private int m_runAnim = Animator.StringToHash("trigger_Run");
@@ -48,7 +50,7 @@ namespace JustGame.Script.Player
         {
             if (m_movingDirection == Vector2.zero) return;
             
-            transform.Translate(m_movingDirection * (Time.deltaTime * m_moveSpeed));
+            //transform.Translate(m_movingDirection * (Time.deltaTime * m_moveSpeed));
         }
 
         private void UpdateAnimator()

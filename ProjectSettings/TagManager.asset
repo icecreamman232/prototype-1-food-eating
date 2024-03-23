@@ -41,9 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Planet
+    uniqueID: 4015444011
+    locked: 0
   - name: Player
     uniqueID: 3989228031
-    locked: 0
-  - name: Food
-    uniqueID: 1778100113
     locked: 0

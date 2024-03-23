@@ -7,6 +7,7 @@ namespace JustGame.Scripts.Managers
         [SerializeField] private Transform m_cameraTransform;
         [SerializeField] private Transform m_targetTransform;
         [SerializeField] private float m_followingSpeed;
+        [SerializeField] private Vector2 m_targetOffset;
         private Vector3 m_targetPos;
 
         private bool m_canFollow;
@@ -34,7 +35,7 @@ namespace JustGame.Scripts.Managers
         {
             if (!m_canFollow) return;
             if (m_targetTransform == null) return;
-            m_targetPos = m_targetTransform.position;
+            m_targetPos = m_targetTransform.position + (Vector3)m_targetOffset;
             m_targetPos.z = -10;
             m_cameraTransform.position = Vector3.Lerp(m_cameraTransform.position, m_targetPos, Time.deltaTime * m_followingSpeed);
         }
