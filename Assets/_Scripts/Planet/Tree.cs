@@ -5,6 +5,7 @@ namespace JustGame.Script.Planet
     public class Tree : MonoBehaviour, IInteractable
     {
         [SerializeField] private GameObject m_woodPrefab;
+        [SerializeField] private GameObject m_seedPrefab;
         [SerializeField] private Vector2 m_spawnWoodOffset;
         
         /// <summary>
