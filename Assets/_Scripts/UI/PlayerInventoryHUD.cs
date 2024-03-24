@@ -1,5 +1,6 @@
 using System;
 using JustGame.Script.Data;
+using JustGame.Scripts.Managers;
 using UnityEngine;
 
 namespace JustGame.Script.UI
@@ -16,7 +17,7 @@ namespace JustGame.Script.UI
             StackAmount = 0;
         }
     }
-    public class PlayerInventoryHUD : MonoBehaviour
+    public class PlayerInventoryHUD : Singleton<PlayerInventoryHUD>
     {
         [Header("UI Events")]
         [SerializeField] private PickItemEvent m_pickItemEvent;
@@ -27,6 +28,7 @@ namespace JustGame.Script.UI
 
         private const int MAX_SLOT = 9;
         private const int MAX_STACK = 99;
+        
         
         private void Start()
         {
@@ -45,6 +47,17 @@ namespace JustGame.Script.UI
             }
         }
 
+        public bool CheckInventorySlotAvailable(ItemData itemWantToAdd)
+        {
+            for (int i = 0; i < m_inventory.Length; i++)
+            {
+                if (CheckInventorySlotAvailable(i, itemWantToAdd))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
         private bool CheckInventorySlotAvailable(int index, ItemData itemWantToAdd)
         {

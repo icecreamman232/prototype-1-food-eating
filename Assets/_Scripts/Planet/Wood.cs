@@ -1,4 +1,5 @@
 using JustGame.Script.Data;
+using JustGame.Script.UI;
 using UnityEngine;
 
 namespace JustGame.Script.Planet
@@ -9,8 +10,11 @@ namespace JustGame.Script.Planet
         [SerializeField] private ItemData m_itemData;
         public void Interact()
         {
-            m_pickItemEvent.Raise(m_itemData);
-            Destroy(this.gameObject);
+            if (PlayerInventoryHUD.Instance.CheckInventorySlotAvailable(m_itemData))
+            {
+                m_pickItemEvent.Raise(m_itemData);
+                Destroy(this.gameObject);
+            }
         }
     }
 }
