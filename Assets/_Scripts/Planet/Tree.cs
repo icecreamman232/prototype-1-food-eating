@@ -7,6 +7,7 @@ namespace JustGame.Script.Planet
         [SerializeField] private GameObject m_woodPrefab;
         [SerializeField] private GameObject m_seedPrefab;
         [SerializeField] private Vector2 m_spawnWoodOffset;
+        [SerializeField] private Vector2 m_spawnSeedOffset;
         
         /// <summary>
         /// How many hit before it's dead
@@ -20,6 +21,7 @@ namespace JustGame.Script.Planet
             if (m_live <= 0)
             {
                 Instantiate(m_woodPrefab, transform.position + (Vector3)m_spawnWoodOffset, Quaternion.identity,transform.parent);
+                Instantiate(m_seedPrefab, transform.position + (Vector3)m_spawnSeedOffset, Quaternion.identity,transform.parent);
                 Destroy(this.gameObject);
             }
         }

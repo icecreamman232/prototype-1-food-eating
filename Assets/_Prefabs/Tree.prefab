@@ -73,9 +73,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -279523285
+  m_SortingLayer: 1
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 19bc472a82134974ca2b260abc880d42, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -137,7 +137,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.022178903, y: 0.93666667}
@@ -167,5 +167,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_woodPrefab: {fileID: 1553565447793914957, guid: 6d2658811f9a33b4a8989363f159f2b4, type: 3}
   m_seedPrefab: {fileID: 97142003992828399, guid: cfaead8e3e382974887b66277ed7b39d, type: 3}
-  m_spawnWoodOffset: {x: 0, y: -0.5}
+  m_spawnWoodOffset: {x: 0.24, y: 0.5}
+  m_spawnSeedOffset: {x: -0.24, y: 0.5}
   m_live: 3
