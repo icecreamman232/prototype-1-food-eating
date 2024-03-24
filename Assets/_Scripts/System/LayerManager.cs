@@ -7,11 +7,13 @@ namespace JustGame.Scripts.Managers
         #region Layers
         public static int PlayerLayer = 6;
         public static int FoodLayer = 7;
+        public static int InteractableLayer = 8;
         #endregion
 
         #region Layer Masks
 
-        public static int EnemyMask = 1 << PlayerLayer;
+        public static int PlayerMask = 1 << PlayerLayer;
+        public static int InteractableMask => 1 << InteractableLayer;
         public static int EnemyProjectileMask = 1 << FoodLayer;
         //public static int PlayerMask = DoorMask | WallMask;
         #endregion
