@@ -30,7 +30,7 @@ namespace JustGame.Script.Planet
         {
             var startAngle = 0;
             var avgAngle = 360 / INIT_TREE_NUM;
-            var randAngleOffset = Random.Range(23, 90);
+            var randAngleOffset = Random.Range(23, 90); //Do not crazy about this number. Its just number I like xD
             for (int i = 0; i < INIT_TREE_NUM; i++)
             {
                 //Cos = x
