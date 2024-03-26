@@ -143,5 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae750f77f9f448488d4445ae2776cea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_playerRuntimeData: {fileID: 11400000, guid: 24478d4673c4ecd469ebe23dbc603f42, type: 2}
   m_pickItemEvent: {fileID: 11400000, guid: d4f25da3c7b9ae04d9a122f5739df5bc, type: 2}
   m_itemData: {fileID: 11400000, guid: 939522a04daee4744ab6abe0b14e737f, type: 2}

@@ -520,7 +520,7 @@ GameObject:
   - component: {fileID: 576791367}
   - component: {fileID: 576791366}
   m_Layer: 0
-  m_Name: Plant
+  m_Name: Planet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -609,7 +609,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000ffc9c6ed2bd056ef
+  m_ApplyToSortingLayers: 000000002bd056efffc9c6ed01d5a212
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -842,7 +842,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2710f1316db4fe040b15b7313922a920, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.41456032, g: 0.6415094, b: 0.55719566, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1240,6 +1240,7 @@ GameObject:
   - component: {fileID: 1391226941}
   - component: {fileID: 1391226939}
   - component: {fileID: 1391226940}
+  - component: {fileID: 1391226943}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1435,6 +1436,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1391226943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391226935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e40e8da40917b469b1d2f861dbbace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_pickItemEvent: {fileID: 11400000, guid: d4f25da3c7b9ae04d9a122f5739df5bc, type: 2}
+  m_playerRuntimeData: {fileID: 11400000, guid: 24478d4673c4ecd469ebe23dbc603f42, type: 2}
+  m_updateInventoryUIEvent: {fileID: 11400000, guid: f9ef38a57a090bf44bf740b8e03108b7, type: 2}
+  m_inventory: []
 --- !u!1001 &1614275125
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1776,8 +1793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b72f91568b2c5749a652f7f719dc864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_pickItemEvent: {fileID: 11400000, guid: d4f25da3c7b9ae04d9a122f5739df5bc, type: 2}
-  m_inventory: []
+  m_updateInventoryUIEvent: {fileID: 11400000, guid: f9ef38a57a090bf44bf740b8e03108b7, type: 2}
   m_inventorySlots:
   - {fileID: 4273357830909071692}
   - {fileID: 2120434561}

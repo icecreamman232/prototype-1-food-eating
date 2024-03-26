@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace JustGame.Script.Data
 {
-    [CreateAssetMenu(menuName = "JustGame/Scriptable Event/Pick Item Event")]
-    public class PickItemEvent : ScriptableObject
+    [CreateAssetMenu(menuName = "JustGame/Scriptable Event/Item Event")]
+    public class ItemEvent : ScriptableObject
     {
         protected Action<ItemData> m_listeners;
         

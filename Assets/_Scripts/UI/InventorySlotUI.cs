@@ -12,7 +12,7 @@ namespace JustGame.Script.UI
             m_itemImage.sprite = null;
         }
         
-        public void AssignItem(ItemData pickedItem)
+        public void AssignItem(ItemData pickedItem,int amount)
         { 
             m_itemImage.sprite = pickedItem.ItemSprite;
         }
