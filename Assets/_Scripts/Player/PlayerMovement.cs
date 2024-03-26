@@ -24,19 +24,19 @@ namespace JustGame.Script.Player
 
         private void HandleInput()
         {
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.UpArrow))
             {
                 m_movingDirection.y = 1;
             }
-            else if (Input.GetKey(KeyCode.S))
+            else if (Input.GetKey(KeyCode.DownArrow))
             {
                 m_movingDirection.y = -1;
             }
-            else if (Input.GetKey(KeyCode.A))
+            else if (Input.GetKey(KeyCode.LeftArrow))
             {
                 m_movingDirection.x = -1;
             }
-            else if (Input.GetKey(KeyCode.D))
+            else if (Input.GetKey(KeyCode.RightArrow))
             {
                 m_movingDirection.x = 1;
             }
