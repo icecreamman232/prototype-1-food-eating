@@ -1448,7 +1448,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e40e8da40917b469b1d2f861dbbace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_playerGauntlet: {fileID: 11400000, guid: 6cf38cb905182eb4dac05571d922ea65, type: 2}
   m_pickItemEvent: {fileID: 11400000, guid: d4f25da3c7b9ae04d9a122f5739df5bc, type: 2}
+  m_selectSlotEvent: {fileID: 11400000, guid: 772307f6011a30449acdcd28f6666c27, type: 2}
   m_playerRuntimeData: {fileID: 11400000, guid: 24478d4673c4ecd469ebe23dbc603f42, type: 2}
   m_updateInventoryUIEvent: {fileID: 11400000, guid: f9ef38a57a090bf44bf740b8e03108b7, type: 2}
   m_inventory: []
@@ -1794,6 +1796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_updateInventoryUIEvent: {fileID: 11400000, guid: f9ef38a57a090bf44bf740b8e03108b7, type: 2}
+  m_selectSlotEvent: {fileID: 11400000, guid: 772307f6011a30449acdcd28f6666c27, type: 2}
   m_inventorySlots:
   - {fileID: 4273357830909071692}
   - {fileID: 2120434561}

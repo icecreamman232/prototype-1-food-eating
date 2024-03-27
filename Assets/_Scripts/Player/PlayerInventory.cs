@@ -1,5 +1,6 @@
 using System;
 using JustGame.Script.Data;
+using JustGame.Scripts.ScriptableEvent;
 using UnityEngine;
 
 namespace JustGame.Script.Player
@@ -13,8 +14,10 @@ namespace JustGame.Script.Player
     
     public class PlayerInventory : MonoBehaviour
     {
+        [SerializeField] private ItemData m_playerGauntlet;
         [Header("UI Events")]
         [SerializeField] private ItemEvent m_pickItemEvent;
+        [SerializeField] private IntEvent m_selectSlotEvent;
         [SerializeField] private PlayerRuntimeData m_playerRuntimeData;
         [SerializeField] private InventoryEvent m_updateInventoryUIEvent;
         [SerializeField] private ItemStack[] m_inventory;
@@ -29,10 +32,54 @@ namespace JustGame.Script.Player
             {
                 m_inventory[i] = new ItemStack();
             }
-            
+
+            //Add gauntlet as default item
+            m_inventory[0].ItemData = m_playerGauntlet;
+            m_inventory[0].StackAmount = 1;
+            m_updateInventoryUIEvent.Raise(m_playerGauntlet,1, 0);
             
             m_playerRuntimeData.AssignInventory(this);
             m_pickItemEvent.AddListener(OnPickItem);
+        }
+        
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                m_selectSlotEvent.Raise(0);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                m_selectSlotEvent.Raise(1);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                m_selectSlotEvent.Raise(2);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                m_selectSlotEvent.Raise(3);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha5))
+            {
+                m_selectSlotEvent.Raise(4);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha6))
+            {
+                m_selectSlotEvent.Raise(5);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha7))
+            {
+                m_selectSlotEvent.Raise(6);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha8))
+            {
+                m_selectSlotEvent.Raise(7);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha9))
+            {
+                m_selectSlotEvent.Raise(8);
+            }
         }
 
         private void OnPickItem(ItemData pickedItem)

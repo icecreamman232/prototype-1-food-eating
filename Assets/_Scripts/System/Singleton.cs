@@ -24,7 +24,7 @@ namespace JustGame.Scripts.Managers
             }
         }
 
-        private void Awake()
+        protected virtual void Awake()
         {
             if (!Application.isPlaying)
             {
